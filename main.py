@@ -1,8 +1,8 @@
 import numpy as np
 
-if __name__ == '__main__':
 
-    values = [1.1, 3.2, -5.5, 4.2, -5.5, 0, -0.7]
+def min_mse(values):
+
     mse_min_all = 100
     mse_min_value = 0
 
@@ -22,12 +22,23 @@ if __name__ == '__main__':
             mse_total += mse_min
 
         print(mse_total)
-        print(delta)
+        print(delta, "\n")
 
         if mse_total < mse_min_all:
             mse_min_all = mse_total
             mse_min_value = delta
 
+    return mse_min_all, mse_min_value
+
+
+if __name__ == '__main__':
+    # USER INPUTS
+    input_values = [1.1, 3.2, -5.5, 4.2, -5.5, 0, -0.7]
+
+    # FUNCTION
+    result_index, result_value = min_mse(input_values)
+
+    # RESULT
     print("\n### RESULTS ###\n")
-    print(mse_min_all)
-    print(mse_min_value)
+    print(result_index)
+    print(result_value)
